@@ -1,0 +1,39 @@
+.timer {
+  --gap: 2.5rem clamp(4rem, 6.875vw, 6.875rem);
+
+  &__list {
+    @include fl(column, center, var(--gap));
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &-item {
+      @include fl(column, center, 0);
+      text-align: center;
+    }
+    &-num {
+      font-size: clamp(3.5rem, 6vw, 6rem);
+      letter-spacing: -0.045em;
+      line-height: 85%;
+
+      @include m(b, 0.125rem);
+    }
+    &-name {
+      @extend p;
+    }
+  }
+}
+
+@include mq(min, mob-mq) {
+  .timer {
+    &__list {
+      flex-direction: row;
+      align-items: flex-start;
+
+      &-item {
+        display: block;
+
+        text-align: left;
+      }
+    }
+  }
+}

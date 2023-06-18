@@ -1,0 +1,49 @@
+:root {
+  --ff: 'Aeonik', sans-serif;
+
+  --w-clr: 255, 255, 255;
+  --b-clr: 0, 0, 0;
+  --r-clr: 215, 22, 53;
+  --text-dark-clr: 24, 24, 24;
+  --bl-clr: 19, 49, 129;
+  --y-clr: 240, 194, 0;
+  --light-clr: 227, 227, 227;
+
+  --text-xxs: 0.625rem;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-xm: 1.125rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 28px;
+  --text-3xl: 2rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 2.5rem;
+
+  --section-margin: clamp(5rem, 7.5vw, 7.5rem);
+
+  --neg-ls: -0.005em;
+}
+
+$media: (
+  desk-1-mq: 85.375em,
+  desk-2-mq: 90em,
+  desk-3-mq: 120em,
+  tab-mq: 72em,
+  xs-tab-mq: 48em,
+  mob-mq: 40em,
+  sm-mob-mq: 24em
+);
+
+@include mq(desk-1-mq, min) {
+  :root {}
+}
+
+@include mq(desk-2-mq, min) {
+  :root {}
+}
+
+@include mq(desk-3-mq, min) {
+  :root {}
+}

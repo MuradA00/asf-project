@@ -1,0 +1,15 @@
+.container {
+  --cont-width: 92.5rem;
+  --cont-px: 1rem;
+
+  max-width: calc(var(--cont-width) + (var(--cont-px) * 2));
+  width: 100%;
+
+  padding: 0 var(--cont-px);
+
+  margin: 0 auto;
+
+  @include mq(min, mob-mq) {
+    --cont-px: clamp(1rem, 3.75vw, 3.75rem);
+  }
+}

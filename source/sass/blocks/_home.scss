@@ -1,0 +1,99 @@
+.home {
+  --content-max-w: 35rem;
+  --home-pt: clamp(5rem, 17.5vw, 17.5rem);
+  --home-pb: 6.75rem;
+  --title-mb: clamp(1.25rem, 2.5vw, 2.5rem);
+  --text-title: clamp(var(--text-4xl), 4.125vw, 4.125rem);
+  --info-mb: clamp(1.875rem, 2.5vw, 2.5rem);
+
+  position: relative;
+
+  &__image-mob {
+    max-width: 23rem;
+
+    @include m-auto;
+    @include m(b, 2.5rem);
+  }
+  &__image-desk {
+      display: none;
+
+      max-width: 26rem;
+
+      position: absolute;
+
+      top: 0;
+      left: 0;
+  }
+  &__body {
+    padding: 5rem 0 0 0;
+  }
+  &__content {
+    max-width: var(--content-max-w);
+
+    @include m-auto;
+  }
+  &__title {
+    margin-bottom: var(--title-mb);
+
+    font-weight: 400;
+    font-size: var(--text-title);
+    line-height: 90.909091%;
+    letter-spacing: -0.035em;
+  }
+  &__info {
+    margin-bottom: var(--info-mb);
+
+    p {
+      span {
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+@include mq(min, tab-mq) {
+  .home {
+    --content-max-w: 35.875rem;
+
+    &__image-mob {
+      display: none;
+    }
+    &__image-desk {
+      display: block;
+    }
+    &__body {
+      padding: var(--home-pt) 0 var(--home-pb);
+    }
+    &__content {
+      max-width: var(--content-max-w);
+      margin-left: auto;
+      margin-right: clamp(1rem, 12vw, 12rem);
+    }
+    &__info {
+      max-width: 30rem;
+    }
+    &__btn {
+      max-width: 16.25rem;
+    }
+  }
+}
+
+@include mq(min, desk-1-mq) {
+  .home {
+    &__image {
+      &-desktop {
+        max-width: min(35vw, 41.875rem);
+      }
+    }
+  }
+}
+
+@include min-w(128em) {
+  .home {
+    &__image {
+      &-desktop {
+        max-width: clamp(41.875rem, 41.875vw, 55.875rem);
+      }
+    }
+  }
+}

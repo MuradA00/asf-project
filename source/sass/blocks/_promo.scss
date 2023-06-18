@@ -1,0 +1,126 @@
+.promo {
+  --flex-container-gap: 2.5rem;
+  --cols-gap: 1.25rem;
+  --stock-image-h: 16.625rem;
+  --person-image-h: 27.75rem;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    grid-gap: var(--flex-container-gap);
+  }
+  &__col {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    grid-gap: var(--cols-gap);
+
+    &--reverse {
+      flex-direction: column-reverse;
+    }
+
+    &-info {
+      &--quote {
+        @include fl(column, flex-start, clamp(1.25rem, 1.875vw, 1.875rem));
+      }
+      p {
+        max-width: 37.75rem;
+
+        font-size: clamp(var(--text-lg), 1.625vw, 1.625rem);
+      }
+    }
+    &-image {
+      background-size: cover;
+      background-repeat: no-repeat;
+
+      &--stock {
+        min-height: var(--stock-image-h);
+      }
+      &--person {
+        min-height: var(--person-image-h);
+
+        background-position: center;
+      }
+    }
+  }
+  &__quote {
+    &-icon {
+      max-width: clamp(1.25rem, 2.5vw, 2.5rem);
+
+      @include m(b, clamp(0.625rem, 1.875vw, 1.875rem));
+
+      img, svg {
+        width: 100%;
+      }
+    }
+  }
+  &__person {
+    font-size: clamp(15px, 1.125vw, var(--text-xm));
+    line-height: 133.333333%;
+    letter-spacing: -0.002em;
+
+    @include mq(min, mob-mq) {
+      letter-spacing: var(--neg-ls);
+    }
+    &-name {
+      font-weight: 700;
+    }
+  }
+  &__socials {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 4px;
+    &-link {
+      width: fit-content;
+
+      color: rgba(var(--r-clr), 1);
+
+      @extend .promo__person;
+
+      position: relative;
+
+      &::after {
+        @include pseudo;
+
+        width: 100%;
+        height: 1px;
+
+        background-color: rgba(var(--r-clr), 1);
+
+        bottom: 0;
+        left: 0;
+
+        @include tr(400, ease);
+
+        transform-origin: left;
+      }
+      @include hover {
+        &:hover {
+          &::after {
+            transform: scale(.5);
+          }
+        }
+      }
+    }
+  }
+}
+
+@include mq(min, xs-tab-mq) {
+  .promo {
+    --flex-container-gap: 5rem;
+    --stock-image-h: 35rem;
+    --person-image-h: 58.75rem;
+
+    &__col {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+
+      &-info {
+        &--quote {
+          padding-top: clamp(7.375rem, 8.625vw, 8.625rem);
+        }
+      }
+    }
+  }
+}
