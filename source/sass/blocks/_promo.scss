@@ -54,6 +54,13 @@
         width: 100%;
       }
     }
+    &-text {
+      p {
+        &:not(:last-child) {
+          @include m(b, 0.75rem);
+        }
+      }
+    }
   }
   &__person {
     font-size: clamp(15px, 1.125vw, var(--text-xm));

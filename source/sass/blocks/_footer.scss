@@ -64,6 +64,24 @@
 
     @include m-auto;
 
+    position: relative;
+
+    &::before {
+      @include pseudo;
+
+      width: calc(100% + var(--footer-outer-spacing) * 2);
+      height: 100%;
+
+      top: 0%;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      background-color: rgba(248, 248, 248, 1);
+
+      z-index: -1;
+    }
+
     &-nav {
       &__link {
         letter-spacing: -0.005em;
