@@ -172,6 +172,8 @@
 
   pointer-events: all;
 
+  overflow-y: scroll;
+
   &--active {
     transform: translateY(0);
 
@@ -223,6 +225,8 @@
     transform: translateY(0);
 
     visibility: visible;
+
+    overflow-y: initial;
 
     &__list {
       @include fl(row, center, 0.5rem);

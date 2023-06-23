@@ -1,0 +1,158 @@
+.text {
+  --text-title: clamp(var(--text-lg), 1.625vw, 1.625rem);
+  --text-main-title: clamp(var(--text-4xl), 4.125vw, 4.125rem);
+  --margin-div: clamp(1.25rem, 1.875vw, 1.875rem);
+  --box-py: 1.875rem;
+
+  padding: 7.5rem 0 0;
+
+  &-b2b {
+    margin-bottom: 0;
+
+    .header {
+      nav {
+        background-color: rgba(var(--w-clr_300), 1);
+      }
+    }
+    .text {
+      padding-bottom: clamp(5rem, 7.5vw, 7.5rem);
+
+      .container {
+        --cont-px: 0;
+
+        max-width: var(--cont-width);
+      }
+    }
+  }
+  &-terms {
+    & > div {
+      --margin-div: 0.625rem;
+    }
+  }
+  &__container {
+    --cont-width: 61.25rem;
+  }
+  &__box {
+    background-color: rgba(var(--w-clr), 1);
+
+    padding: var(--box-py) 1.25rem;
+
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+    &:not(:last-child) {
+      @include m(b, 1.25rem);
+    }
+  }
+  &__info {
+    & > div {
+      &:not(:last-child) {
+        @include m(b, var(--margin-div));
+      }
+
+      p {
+        &:not(:last-child) {
+          @include m(b, 0.625rem);
+        }
+      }
+    }
+  }
+  h1 {
+    font-weight: 400;
+    font-size: var(--text-main-title);
+    line-height: 90%;
+    word-break: break-all;
+
+    @include m(b, clamp(1.25rem, 2.5vw, 2.5rem));
+  }
+  h2, h3, h4, h5, h6 {
+    font-size: var(--text-title);
+    font-weight: 400;
+
+    @include m(b, clamp(0.3125rem, .625vw, 0.625rem))
+  }
+  ol {
+    padding: 0 clamp(1.25rem, 2.5vw, 2.5rem);
+
+    margin: 0;
+
+    li {
+      span {
+        display: block;
+
+        margin-bottom: 5px !important;
+      }
+    }
+  }
+  ul {
+    @include m(b, 0.625rem);
+
+    li {
+      --li-pl: 1.625rem;
+      --point-ratio: 0.25rem;
+
+      position: relative;
+
+      padding-left: var(--li-pl);
+
+      &::before {
+        @include pseudo;
+
+        width: var(--point-ratio);
+        height: var(--point-ratio);
+
+        top: calc(var(--point-ratio) * 2.25);
+        left: calc(var(--li-pl) / 2);
+
+        border-radius: 50%;
+
+        background-color: rgba(var(--text-dark-clr), 1);
+      }
+    }
+  }
+  li {
+    @extend p;
+  }
+  span {
+    &:not(.text__notif) {
+      font-weight: 700;
+
+      @extend p;
+    }
+  }
+  a {
+    color: rgba(var(--r-clr), 1);
+
+    text-decoration: underline;
+
+    @include hover {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  &__notif {
+    font-size: var(--text-sm);
+    font-weight: 400;
+  }
+}
+
+@include mq(min, mob-mq) {
+  .text {
+    --box-py: 3.75rem;
+    --box-horizontal-spacing: 3.75rem;
+
+    padding: calc(4.875rem + 4.25rem) 0 0;
+  }
+}
+
+@include mq(min, tab-mq) {
+  .text {
+    &__box {
+      @include m-auto;
+
+      width: calc(100% - (var(--box-horizontal-spacing) * 2));
+    }
+  }
+}
+

@@ -247,5 +247,13 @@
   }
   .rating {
     --rating-icon-max-w: 3.375rem;
+
+    @include tr(200, ease);
+
+    @include hover {
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
   }
 }

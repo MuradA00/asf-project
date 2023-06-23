@@ -25,6 +25,14 @@ body {
   min-height: 100vh;
 }
 
+.text-b2b {
+  background-color: rgba(var(--w-clr_300), 1);;
+
+  .header--fixed {
+    background-color: rgba(var(--w-clr_300), 1);
+  }
+}
+
 .locked {
   overflow: hidden;
 }

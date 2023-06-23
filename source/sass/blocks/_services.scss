@@ -13,6 +13,10 @@
   --heading-max-w: 37.5rem;
   --modal-btn-ratio: 3.75rem;
 
+  .heading {
+    max-width: 26.75rem;
+  }
+
   &__wrapper {
     @include m(b, 1.875rem);
   }
@@ -58,6 +62,8 @@
 
       border-radius: 50%;
       border: 1px solid rgba(var(--light-clr), 1);
+
+      align-self: flex-end;
 
       &:active {
         transform: scale(.925);
@@ -299,6 +305,11 @@
     --modals-bottom-px: clamp(1.25rem, 2.75vw, 2.75rem);
     --modal-btn-ratio: 4.625rem;
 
+    &__grid {
+      &-btn {
+        align-self: flex-start;
+      }
+    }
     &__modal {
       background-color: transparent;
 
