@@ -53,7 +53,7 @@
 
 @include mq(min, tab-mq) {
   .home {
-    --content-max-w: 35.875rem;
+    --content-max-w: 36.875rem;
 
     &__image-mob {
       display: none;

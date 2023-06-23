@@ -19,6 +19,12 @@
     }
     &-name {
       @extend p;
+
+      span {
+        color: rgba(var(--r-clr), 1);
+
+        font-weight: 700;
+      }
     }
   }
 }

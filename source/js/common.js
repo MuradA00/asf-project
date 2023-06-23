@@ -1,18 +1,68 @@
 const body = document.body,
       burger = document.querySelector('.header__menu'),
-      navLinks = document.querySelectorAll('.menu a'),
-      menu = document.querySelector('.menu'),
+      navLinks = document.querySelectorAll('.nav a'),
+      menu = document.querySelector('.nav'),
       html = document.documentElement,
       accsItems = document.querySelectorAll('.faq__accs-item'),
       roadmap = document.querySelector('.roadmap'),
       roadmapBlocks = document.querySelectorAll('.roadmap__block'),
-      closeBtn = document.querySelector('.menu__close');
+      closeBtn = document.querySelector('.menu__close'),
+      modalTriggersBtns = document.querySelectorAll('.services__grid-btn'),
+      modals = [...document.querySelectorAll('.services__modal')],
+      closeBtns = document.querySelectorAll('.services__modal-close'),
+      modalLinksToForm = document.querySelectorAll('.services__modal-btn'),
+      header = document.querySelector('.header');
+
+function showModal() {
+  body.classList.add('locked')
+  document.documentElement.classList.add('locked')
+}
+
+function hideModal() {
+  body.classList.remove('locked')
+  document.documentElement.classList.remove('locked')
+}
+
+if (modals) {
+  closeBtns.forEach(btn => btn.addEventListener('click', () => {
+    modals.map(modal => modal.classList.remove('services__modal--active'), hideModal());
+  }))
+
+  modalLinksToForm.forEach(btn => {
+    btn.addEventListener('click', () =>
+     modals.map(modal => {
+      modal.classList.remove('services__modal--active');
+
+      hideModal();
+     }))
+  })
+
+  modalTriggersBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const attr = btn.getAttribute('data-trigger');
+      modals.find(modal => {
+        if (modal.id === attr) {
+          showModal();
+          modal.classList.add('services__modal--active');
+        }
+      })
+    })
+  })
+}
+
+if (header) {
+  window.addEventListener('scroll', () => {
+    headerTopPosition = header.offsetTop;
+
+    window.pageYOffset > (headerTopPosition + (header.clientHeight / 2)) ? header.classList.add('header--fixed') : header.classList.remove('header--fixed')
+  })
+}
 
 function closeMenu() {
-    menu.classList.remove('show-menu');
+    menu.classList.remove('nav--active');
     burger.classList.remove('active-burger');
-    body.classList.remove('body-locked')
-    html.classList.remove('body-locked');
+    body.classList.remove('locked')
+    html.classList.remove('locked');
     menu.classList.remove('show-links');
 }
 
@@ -28,19 +78,24 @@ closeMenuByClick();
 
 function showMenu() {
   burger.classList.toggle('active-burger');
-  body.classList.add('body-locked')
+  body.classList.add('locked')
   if (burger.classList.contains('active-burger')) {
-    menu.classList.add('show-menu')
-    body.classList.add('body-locked')
-    html.classList.add('body-locked')
+    menu.classList.add('nav--active')
+    body.classList.add('locked')
+    html.classList.add('locked')
+
+    header.style.setProperty('--header-py', '1rem');
+
 
     setTimeout(() => {
       menu.classList.add('show-links')
     }, 500)
   } else {
     menu.classList.remove('show-menu')
-    body.classList.remove('body-locked')
-    html.classList.remove('body-locked');
+    body.classList.remove('locked')
+    html.classList.remove('locked');
+
+    header.style.setProperty('--header-py', '.5rem');
 
     closeMenu();
   }
@@ -76,23 +131,4 @@ const teamSlider = new Swiper('.review__slider-inner', {
   })
 }
 
-// function showModal(modal) {
-//   modal.classList.add('show-modal')
-//   body.classList.add('body-locked')
-//   html.classList.add('body-locked')
-//  }
-
-//  function hideModal(modal) {
-//   modal.classList.remove('show-modal');
-//   body.classList.remove('body-locked')
-//   html.classList.remove('body-locked')
-//  }
-
-// modalCloseBtn.addEventListener('click', () => hideModal(modal));
-
-// window.addEventListener('click', (e) => {
-//    if (e.target === document.querySelector('.modal__container')) {
-//     hideModal(modal);
-//    }
-// })
 
