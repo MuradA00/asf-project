@@ -131,4 +131,9 @@ const teamSlider = new Swiper('.review__slider-inner', {
   })
 }
 
+if (AOS) {
+  AOS.init({
+    once: true
+  })
+}
 

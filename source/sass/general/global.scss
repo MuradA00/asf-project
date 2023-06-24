@@ -25,16 +25,13 @@ body {
   min-height: 100vh;
 }
 
-.text-b2b {
-  background-color: rgba(var(--w-clr_300), 1);;
 
-  .header--fixed {
-    background-color: rgba(var(--w-clr_300), 1);
-  }
+[data-aos=fade-left] {
+  transform: translate3d(2.5rem,0,0);
 }
 
-.locked {
-  overflow: hidden;
+[data-aos=fade-up] {
+  transform: translate3d(0, 2.5rem, 0);
 }
 
 html {
@@ -50,6 +47,18 @@ html {
   overflow-x: hidden;
 
   scroll-behavior: smooth;
+}
+
+.text-b2b {
+  background-color: rgba(var(--w-clr_300), 1);;
+
+  .header--fixed {
+    background-color: rgba(var(--w-clr_300), 1);
+  }
+}
+
+.locked {
+  overflow: hidden;
 }
 
 *,
