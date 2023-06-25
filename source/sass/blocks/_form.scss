@@ -44,6 +44,8 @@
       width: 100%;
 
       input {
+        border: none;
+
         background-color: transparent;
 
         position: relative;
@@ -58,6 +60,8 @@
         @include tr(400, ease);
 
         color: rgba(var(--border-clr), .4);
+
+        border-radius: 0;
 
         &::placeholder {
           color: inherit;
@@ -149,11 +153,23 @@
       @include fl(column, flex-start, 1.875rem);
     }
     &-address {
+      display: flex;
+      flex-direction: column;
       & > * {
         font-size: clamp(1.25rem, 1.625vw, 1.625rem);
       }
       & > *:not(:last-child) {
         @include m(b, clamp(1rem, 1.25vw, 1.25rem));
+      }
+
+      a {
+        @include tr(200, ease);
+
+        @include hover {
+          &:hover {
+            color: rgba(var(--r-clr), 1);
+          }
+        }
       }
 
       span {
@@ -165,7 +181,7 @@
     --socials-link-ratio: 1.375rem;
 
     @include fl(row, center, 15px);
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
 
     &-link {
       @include tr(300, ease);
