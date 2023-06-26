@@ -26,6 +26,14 @@ function hideModal() {
 if (modals) {
   closeBtns.forEach(btn => btn.addEventListener('click', () => {
     modals.map(modal => modal.classList.remove('services__modal--active'), hideModal());
+
+    modalLinksToForm.forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelector('.home').scrollIntoView({
+          behavior: 'smooth'
+        });
+      })
+    })
   }))
 
   modalLinksToForm.forEach(btn => {
@@ -36,13 +44,6 @@ if (modals) {
      }))
   })
 
-  modalLinksToForm.forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelector('.home').scrollIntoView({
-        behavior: 'smooth'
-      });
-    })
-  })
 
   modalTriggersBtns.forEach(btn => {
     btn.addEventListener('click', function() {
