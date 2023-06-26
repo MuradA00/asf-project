@@ -95,3 +95,13 @@
     transform: scale(.985);
   }
 }
+
+p:not(.services__modal-info-heading p) {
+  font-size: clamp(15px, 1.125vw, var(--text-xm));
+  line-height: 133.333333%;
+  letter-spacing: -0.002em;
+
+  @include mq(min, mob-mq) {
+    letter-spacing: var(--neg-ls);
+  }
+}
