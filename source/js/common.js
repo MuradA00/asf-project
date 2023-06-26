@@ -25,10 +25,13 @@ function hideModal() {
 
 if (modals) {
   modalLinksToForm.forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelector('.home').scrollIntoView({
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      window.scrollTo({
+        top: document.querySelector('.form').offsetTop,
         behavior: 'smooth'
-      });
+      })
     })
   })
 }
