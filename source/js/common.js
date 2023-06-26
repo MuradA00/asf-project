@@ -37,7 +37,11 @@ if (modals) {
   })
 
   modalLinksToForm.forEach(btn => {
-    document.querySelector('#form-section').scrollIntoView();
+    btn.addEventListener('click', () => {
+      document.querySelector('.form').scrollIntoView({
+        behavior: 'smooth'
+      });
+    })
   })
 
   modalTriggersBtns.forEach(btn => {
