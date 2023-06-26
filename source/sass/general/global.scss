@@ -47,6 +47,12 @@ html {
   overflow-x: hidden;
 
   scroll-behavior: smooth;
+
+  scroll-padding-top: 4.5rem;
+
+  @include mq(min, tab-mq) {
+    scroll-padding-top: 5rem;
+  }
 }
 
 .text-b2b {
@@ -98,7 +104,7 @@ main {
 
   flex: 1;
 
-  & > section {
+  & > * {
     @include m(b, var(--section-margin));
   }
 }
