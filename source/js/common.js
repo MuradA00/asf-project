@@ -30,11 +30,14 @@ if (modals) {
 
   modalLinksToForm.forEach(btn => {
     btn.addEventListener('click', () =>
-    window.location = btn.getAttribute('href'),
      modals.map(modal => {
       modal.classList.remove('services__modal--active');
       hideModal();
      }))
+  })
+
+  modalLinksToForm.forEach(btn => {
+    document.querySelector('#form-section').scrollIntoView();
   })
 
   modalTriggersBtns.forEach(btn => {
