@@ -30,9 +30,9 @@ if (modals) {
 
   modalLinksToForm.forEach(btn => {
     btn.addEventListener('click', () =>
+    window.location = btn.getAttribute('href'),
      modals.map(modal => {
       modal.classList.remove('services__modal--active');
-
       hideModal();
      }))
   })
