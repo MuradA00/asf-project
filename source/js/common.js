@@ -38,7 +38,7 @@ if (modals) {
 
   modalLinksToForm.forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelector('.form').scrollIntoView({
+      document.querySelector('.home').scrollIntoView({
         behavior: 'smooth'
       });
     })
