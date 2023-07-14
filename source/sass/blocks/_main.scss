@@ -1,0 +1,81 @@
+.main {
+  --btn-mb: 1.25rem;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: left;
+
+  &__container {
+    --cont-px: 3.125rem;
+
+    min-height: inherit;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  &__body {
+    width: 100%;
+
+    padding-bottom: clamp(13.75rem, 21.25vw, 21.25rem);
+  }
+  &__options {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: var(--options-max-w);
+
+    @include m-a;
+  }
+  &__link {
+    flex: 1;
+
+    width: 100%;
+
+    border-radius: var(--root-btn-radius);
+
+    padding: var(--root-btn-py) var(--root-btn-px);
+
+    background-image: var(--root-btn-gradient);
+
+    @include dfc;
+    @include btn-hover;
+
+    text-align: center;
+
+    box-shadow: 0px 0.25rem 0.25rem rgba(var(--b-clr), 0.25);
+
+    &:active {
+      transform: scale(.985);
+    }
+
+    &:not(:last-child) {
+      margin-bottom: var(--btn-mb);
+    }
+    & > span {
+      color: rgba(var(--w-clr), 1);
+
+      font-size: var(--text-3xl);
+      font-weight: 400;
+      text-transform: uppercase;
+      line-height: 105%;
+    }
+  }
+}
+
+@include max-w(25.625em) {
+  .main {
+    &__link {
+      span {
+        font-size: var(--text-2xl);
+      }
+    }
+  }
+}
+
+@include min-w(920px) {
+  .main {
+    background-position: center;
+  }
+}

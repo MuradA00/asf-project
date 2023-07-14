@@ -4,24 +4,23 @@
 
 <body>
 
-  @@include('_header.html',{})
-
   <main>
-    @@include('_home.html',{})
-    @@include('_timer.html',{})
-    @@include('_banner.html',{})
-    @@include('_services.html',{})
-    @@include('_image-section.html',{})
-    @@include('_benefits.html', {})
-    @@include('_promo.html',{})
-    @@include('_review.html',{})
-    @@include('_form.html',{})
+    <section class="main full-h" style="background-image: url(img/index/first-screen-bg.webp);">
+      <div class="main__container container">
+        <div class="main__body">
+          <div class="main__options">
+            <a href="game.html" class="main__link" aria-label="Link to game page">
+              <span>play game</span>
+            </a>
+            <a href="#" class="main__link" aria-label="Link to settings page">
+              <span>setting</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
-  @@include('_footer.html',{})
-
-  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="js/common.js"></script>
 </body>
 

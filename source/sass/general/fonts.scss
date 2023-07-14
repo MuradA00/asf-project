@@ -1,21 +1,10 @@
 @font-face {
-	font-family: 'Aeonik';
-	src: url('../../fonts/Aeonik-Bold.woff2');
-	src: local('Aeonik'), local('AeonikPro-Bold'),
-		url('../../fonts/Aeonik-Bold.woff2') format('woff2');
-	font-weight: 700;
-	font-style: normal;
-}
-
-@font-face {
-	font-family: 'Aeonik';
-	src: url('../../fonts/Aeonik-Regular.woff2');
-	src: local('Aeonik'), local('AeonikPro-Regular'),
-		url('../../fonts/Aeonik-Regular.woff2') format('woff2');
+	font-family: 'micro-font';
+	src: url('../../fonts/M025096D.woff2');
+	src: local('micro-font'), local('micro-font-Regular'),
+		url('../../fonts/M025096D.woff2') format('woff2'),
+    url('../../fonts/M025096D.ttf') format('truetype');
 	font-weight: 400;
 	font-style: normal;
 }
-
-
-
 

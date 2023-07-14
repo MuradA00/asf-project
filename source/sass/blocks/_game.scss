@@ -1,0 +1,347 @@
+.game {
+  --value-item-p: 0.875rem;
+  --return-btn-w: 3.75rem;
+  --return-btn-h: 2.625rem;
+  --root-game-body-pt: 1.375rem;
+  --root-game-body-pb: 3.875rem;
+  --item-btn-radius: 1.25rem;
+  --spin-max-w: 17.375rem;
+  --span-padding-top: 1rem;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  position: relative;
+
+  &::before {
+    @include pseudo;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(var(--b-clr), .5);
+
+    top: 0;
+    left: 0;
+  }
+
+  &__container {
+    min-height: inherit;
+
+    position: relative;
+  }
+  &__body {
+    padding: var(--root-game-body-pt) 0 var(--root-game-body-pb) 0;
+
+    min-height: inherit;
+  }
+  &__spin {
+    margin-bottom: 1.625rem;
+
+    --spin-p: .75rem;
+
+    border-radius: 50%;
+
+    max-width: calc(var(--spin-max-w) + var(--spin-p));
+    @include m-a;
+    aspect-ratio: 1 / 1;
+
+    position: relative;
+
+    background-image: linear-gradient(rgba(var(--b-clr), 1), rgba(63, 55, 55, 1));
+
+    padding: var(--spin-p);
+
+    &::after {
+      @include pseudo;
+
+      width: 1.75rem;
+      height: 1.75rem;
+
+      border-radius: 50%;
+
+      background-image: linear-gradient(180deg, rgba(var(--b-clr), 1) 0%, #817F7F 100%);
+
+      @include center;
+    }
+
+    &-pointer {
+      --pointer-ratio: 3.25rem;
+
+      position: absolute;
+
+      top: calc(-1 * (var(--pointer-ratio) / 2.5));
+      left: 50%;
+      transform: translateX(-50%);
+
+      width: var(--pointer-ratio);
+      height: calc(var(--pointer-ratio) / 1.25);
+
+      z-index: 2;
+
+      img {
+        display: block;
+      }
+    }
+
+    &-list {
+      width: 100%;
+      height: 100%;
+
+      position: relative;
+
+      border-radius: inherit;
+
+      overflow: hidden;
+
+      transition: 5s ease;
+    }
+    &-wheel {
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      img {
+        display: block;
+
+        width: 100%;
+        height: 100%;
+      }
+    }
+    &-block {
+      --current-clr: var(--w-clr);
+      $total: 12;
+
+      width: calc(var(--spin-max-w) / 3.75);
+      height: 50%;
+      left: 50%;
+
+      transform-origin: bottom;
+      position: absolute;
+
+      transform: translateX(-50%) rotate(var(--degree));
+
+      background-color: rgba(var(--grn-clr), 1);
+
+      clip-path: var(--triangle-shape);
+
+      display: flex;
+      align-items: center;
+
+      writing-mode: vertical-rl;
+
+      @for $i from 1 through $total {
+        &:nth-of-type(#{$i}) {
+          --degree: calc((360deg / #{$total}) * #{$i});
+        }
+      }
+      & > span {
+        padding-top: var(--span-padding-top);
+
+        color: rgba(var(--current-clr), 1);
+
+        font-size: var(--text-lg);
+        text-transform: uppercase;
+      }
+      &:nth-child(2n + 1) {
+        --current-clr: var(--grn-clr);
+
+        background-color: rgba(var(--r-clr), 1);
+      }
+    }
+  }
+  &__return {
+    border-radius: var(--root-btn-radius);
+
+    background-image: linear-gradient(rgba(var(--w-clr), 1), rgba(var(--w-clr), 0));
+
+    @include dfc;
+
+    width: var(--return-btn-w);
+    height: var(--return-btn-h);
+
+    margin-bottom: 1rem;
+
+    position: relative;
+
+    &::before {
+      @include pseudo;
+
+      width: calc(100% - 2px);
+      height: calc(100% - 2px);
+
+      background-image: var(--root-btn-gradient);
+
+      border-radius: inherit;
+
+      @include center;
+    }
+
+    svg {
+      width: 0.625rem;
+      height: 0.875rem;
+
+      position: relative;
+    }
+  }
+  &__spin-btn {
+    min-height: 5rem;
+    width: 100%;
+    max-width: 12.5rem;
+
+    @include m-a;
+    @include dfc;
+    @include btn-hover;
+
+    margin-bottom: 2.375rem;
+
+    text-align: center;
+
+    border: 3px solid rgba(var(--w-clr), 1);
+    border-radius: var(--item-btn-radius);
+
+    background-color: rgba(var(--r-clr), 1);
+
+    &:active {
+      transform: scale(.985);
+    }
+    & > span {
+      color: rgba(var(--w-clr), 1);
+
+      font-size: var(--text-3xl);
+    }
+  }
+  &__values {
+    max-width: 18.125rem;
+    @include m-a;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1.125rem;
+
+    margin-bottom: 1.875rem;
+
+    &-item {
+      background-color: rgba(var(--w-clr), 1);
+
+      border-radius: var(--item-btn-radius);
+
+      padding: var(--value-item-p);
+
+      @include fl(column, center, 0px);
+
+      text-align: center;
+
+      color: rgba(var(--br-clr), 1);
+
+      font-size: 15px;
+      line-height: 90%;
+      text-transform: uppercase;
+
+      border: 3px solid rgba(var(--br-clr), 1);
+
+      & > span {
+        font-size: var(--text-sm);
+        font-weight: 400;
+
+        color: rgba(var(--r-clr), 1);
+      }
+    }
+  }
+  &__bet {
+    width: calc(100% - var(--root-total-bet-spacing));
+    max-width: 40rem;
+
+    @include m-a;
+
+    position: relative;
+
+    &-value {
+      font-size: 15px;
+      font-weight: 400;
+
+      color: rgba(var(--br-clr), 1);
+
+      text-align: center;
+    }
+    &-total {
+      min-height: 3.625rem;
+
+      background-color: rgba(var(--w-clr), 1);
+
+      @include fl(column, center, 2px);
+      justify-content: center;
+
+      text-align: center;
+
+      color: rgba(var(--r-clr), 1);
+
+      font-size: var(--text-sm);
+      font-weight: 400;
+    }
+    &-btn {
+      position: absolute;
+
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      border: 3px solid rgba(var(--w-clr), 1);
+      border-radius: 1.25rem;
+
+      height: 4.75rem;
+      aspect-ratio: 1 / 1;
+
+      @include dfc;
+      text-align: center;
+
+      background-color: rgba(var(--r-clr), 1);
+
+      @include tr(200, ease);
+
+      @include hover {
+        &:hover {
+          scale: 1.025;
+        }
+      }
+
+      &:active {
+        scale: .985;
+      }
+
+      span {
+        font-size: 40px;
+
+        color: rgba(var(--br-clr), 1);
+      }
+
+      &--incr {
+        right: calc(-1 * var(--root-total-bet-spacing));
+      }
+      &--decr {
+        left: calc(-1 * var(--root-total-bet-spacing));
+      }
+    }
+  }
+}
+
+@include min-w(34.25em) {
+  .game {
+    --spin-max-w: 26.75rem;
+    --span-padding-top: 2rem;
+    &__spin-btn {
+      max-width: 27.5rem;
+    }
+    &__values {
+      max-width: 37.5rem;
+    }
+  }
+}
+
+.play-wheel {
+  transform: rotate(var(--degree-value));
+}

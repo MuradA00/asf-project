@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
 
-  color: rgba(var(--text-dark-clr),1);
+  color: rgba(var(--b-clr),1);
   background-color: rgba(var(--w-clr), 1);
 
   width: 100%;
@@ -14,24 +14,13 @@ body {
   font-size: inherit;
   line-height: inherit;
   min-height: -webkit-fill-available;
-  letter-spacing: var(--neg-ls);
   display: flex;
   flex-direction: column;
 
   scroll-behavior: smooth;
 
   overflow-x: hidden;
-
   min-height: 100vh;
-}
-
-
-[data-aos=fade-left] {
-  transform: translate3d(2.5rem,0,0);
-}
-
-[data-aos=fade-up] {
-  transform: translate3d(0, 2.5rem, 0);
 }
 
 html {
@@ -97,16 +86,6 @@ button {
   padding: 0;
   margin: 0;
   line-height: initial;
-}
-
-main {
-  position: relative;
-
-  flex: 1;
-
-  & > * {
-    @include m(b, var(--section-margin));
-  }
 }
 
 ul,

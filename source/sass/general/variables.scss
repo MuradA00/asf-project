@@ -1,14 +1,13 @@
 :root {
-  --ff: 'Aeonik', sans-serif;
+  --ff: 'micro-font', sans-serif;
 
   --w-clr: 255, 255, 255;
   --b-clr: 0, 0, 0;
-  --r-clr: 215, 22, 53;
-  --text-dark-clr: 24, 24, 24;
-  --bl-clr: 19, 49, 129;
-  --y-clr: 240, 194, 0;
-  --light-clr: 227, 227, 227;
-  --w-clr_300: 248, 248, 248;
+  --r-clr: 255, 0, 1;
+  --grn-clr: 16, 84, 43;
+  --br-clr: 71, 43, 1;
+  --y-clr: 255, 231, 61;
+  --or-clr: 255, 139, 2;
 
   --text-xxs: 0.625rem;
   --text-xs: 0.75rem;
@@ -22,9 +21,19 @@
   --text-4xl: 2.25rem;
   --text-5xl: 2.5rem;
 
-  --section-margin: clamp(5rem, 7.5vw, 7.5rem);
+  --root-btn-radius: 3.125rem;
+  --root-btn-py: 1.25rem;
+  --root-btn-px: 2.125rem;
 
-  --neg-ls: -0.005em;
+  --cont-px: 1.75rem;
+
+  --options-max-w: 27.5rem;
+
+  --root-total-bet-spacing: 8px;
+
+  --root-btn-gradient: linear-gradient(180deg, rgba(var(--y-clr), 1) 0%, rgba(var(--or-clr), 1) 100%);
+
+  --triangle-shape: polygon(100% 0, 50% 100%, 0 0);
 }
 
 $media: (
